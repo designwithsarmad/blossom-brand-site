@@ -1,7 +1,5 @@
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 
-let idCounter = 0;
-const useId = () => `f${++idCounter}`;
 
 export function Fieldset({
   legend,

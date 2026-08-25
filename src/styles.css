@@ -135,3 +135,55 @@
     box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 22%, transparent);
   }
 }
+
+@utility btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-md);
+  padding: 0.8rem 1.6rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: var(--shadow-soft);
+
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-primary) 88%, black);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@utility btn-urgent {
+  background-color: var(--color-urgent);
+  color: var(--color-urgent-foreground);
+  box-shadow: var(--shadow-lift);
+
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-urgent) 88%, black);
+  }
+}
+
+@utility btn-outline {
+  border: 1px solid color-mix(in oklab, var(--color-primary) 45%, transparent);
+  background-color: transparent;
+  color: var(--color-primary);
+
+  &:hover {
+    background-color: var(--color-secondary);
+  }
+}
