@@ -10,33 +10,76 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EverydaySympathyFlowersRouteImport } from './routes/everyday-sympathy-flowers'
+import { Route as GetAQuoteRouteImport } from './routes/get-a-quote'
+import { Route as WeddingFloristStauntonRouteImport } from './routes/wedding-florist-staunton'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EverydaySympathyFlowersRoute = EverydaySympathyFlowersRouteImport.update({
+  id: '/everyday-sympathy-flowers',
+  path: '/everyday-sympathy-flowers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetAQuoteRoute = GetAQuoteRouteImport.update({
+  id: '/get-a-quote',
+  path: '/get-a-quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WeddingFloristStauntonRoute = WeddingFloristStauntonRouteImport.update({
+  id: '/wedding-florist-staunton',
+  path: '/wedding-florist-staunton',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/everyday-sympathy-flowers': typeof EverydaySympathyFlowersRoute
+  '/get-a-quote': typeof GetAQuoteRoute
+  '/wedding-florist-staunton': typeof WeddingFloristStauntonRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/everyday-sympathy-flowers': typeof EverydaySympathyFlowersRoute
+  '/get-a-quote': typeof GetAQuoteRoute
+  '/wedding-florist-staunton': typeof WeddingFloristStauntonRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/everyday-sympathy-flowers': typeof EverydaySympathyFlowersRoute
+  '/get-a-quote': typeof GetAQuoteRoute
+  '/wedding-florist-staunton': typeof WeddingFloristStauntonRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/everyday-sympathy-flowers'
+    | '/get-a-quote'
+    | '/wedding-florist-staunton'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/everyday-sympathy-flowers'
+    | '/get-a-quote'
+    | '/wedding-florist-staunton'
+  id:
+    | '__root__'
+    | '/'
+    | '/everyday-sympathy-flowers'
+    | '/get-a-quote'
+    | '/wedding-florist-staunton'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EverydaySympathyFlowersRoute: typeof EverydaySympathyFlowersRoute
+  GetAQuoteRoute: typeof GetAQuoteRoute
+  WeddingFloristStauntonRoute: typeof WeddingFloristStauntonRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +91,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/everyday-sympathy-flowers': {
+      id: '/everyday-sympathy-flowers'
+      path: '/everyday-sympathy-flowers'
+      fullPath: '/everyday-sympathy-flowers'
+      preLoaderRoute: typeof EverydaySympathyFlowersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-a-quote': {
+      id: '/get-a-quote'
+      path: '/get-a-quote'
+      fullPath: '/get-a-quote'
+      preLoaderRoute: typeof GetAQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wedding-florist-staunton': {
+      id: '/wedding-florist-staunton'
+      path: '/wedding-florist-staunton'
+      fullPath: '/wedding-florist-staunton'
+      preLoaderRoute: typeof WeddingFloristStauntonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EverydaySympathyFlowersRoute: EverydaySympathyFlowersRoute,
+  GetAQuoteRoute: GetAQuoteRoute,
+  WeddingFloristStauntonRoute: WeddingFloristStauntonRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
