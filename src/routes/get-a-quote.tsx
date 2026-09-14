@@ -328,6 +328,41 @@ function QuotePage() {
           </Fieldset>
 
           <Fieldset legend="Questions or Special Requests?" hint="Optional">
+            <OptionGroup
+              legend="Would you like to attach photos for inspiration of your event styling?"
+              name="attachPhotos"
+              type="radio"
+              options={["Yes", "No"]}
+              columns={2}
+              onChange={setAttachPhotos}
+            />
+            {attachPhotos === "Yes" && (
+              <Field
+                label="Attach inspiration photos"
+                hint="Share photos of event styling or arrangements you love (JPG, PNG)."
+              >
+                {(id) => (
+                  <input
+                    id={id}
+                    name="inspirationPhotos"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    className="field-base file:mr-3 file:cursor-pointer file:rounded-md file:border-0 file:bg-secondary file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-secondary-foreground"
+                  />
+                )}
+              </Field>
+            )}
+            <Field label="Pinterest link for sample events or photographs">
+              {(id) => (
+                <TextInput
+                  id={id}
+                  name="pinterestSamples"
+                  type="url"
+                  placeholder="https://"
+                />
+              )}
+            </Field>
             <Field label="Anything else we should know?">
               {(id) => <TextArea id={id} name="notes" rows={5} />}
             </Field>
