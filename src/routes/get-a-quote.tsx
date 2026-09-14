@@ -34,6 +34,7 @@ export const Route = createFileRoute("/get-a-quote")({
 function QuotePage() {
   const [heardAbout, setHeardAbout] = useState("");
   const [tableType, setTableType] = useState("");
+  const [attachPhotos, setAttachPhotos] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   if (submitted) {
